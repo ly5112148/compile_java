@@ -116,6 +116,17 @@ public class Scanner {
                     addToken(this.curType, this.token);
                     continue;
             }
+            if(curChar=='['){
+                curChar = source.nextChar();
+                if(curChar==']'){
+                    curChar = source.nextChar();
+                    addToken(Type.delete_symbol, "[]");
+                    continue;
+                }
+                else{
+                    System.out.println("error" + "    " + curChar);
+                }
+            }
             if(curChar==';'){
                     addToken(Type.EndSymbol, ";");
                     curChar = source.nextChar();
